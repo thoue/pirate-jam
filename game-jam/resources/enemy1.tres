@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="EnemyStats" load_steps=2 format=3 uid="uid://86g443gqluo5"]
+[gd_resource type="Resource" script_class="EnemyStats" load_steps=2 format=3 uid="uid://c5vyvq8t0fd5c"]
 
 [ext_resource type="Script" path="res://scripts/enemyStats.gd" id="1_r26yr"]
 
@@ -6,3 +6,4 @@
 script = ExtResource("1_r26yr")
 max_health = 2
 max_speed = 60
+damage = 5
