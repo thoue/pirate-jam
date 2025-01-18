@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://dobfn3t7aor2r"]
+
+[ext_resource type="PackedScene" uid="uid://diw4kln4m6r2l" path="res://scenes/sword/sword.tscn" id="1_vg5d3"]
+
+[node name="SwordDev" type="Node2D"]
+
+[node name="Sword" parent="." instance=ExtResource("1_vg5d3")]
+
+[node name="Camera2D" type="Camera2D" parent="."]
