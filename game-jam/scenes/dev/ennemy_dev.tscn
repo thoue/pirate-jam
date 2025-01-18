@@ -1,3 +1,63 @@
-[gd_scene format=3 uid="uid://c0ud6iyaiu5h4"]
+[gd_scene load_steps=10 format=3 uid="uid://c0ud6iyaiu5h4"]
 
-[node name="Ennemy" type="Node2D"]
+[ext_resource type="Texture2D" uid="uid://dvef1avr6wgqs" path="res://assets/slime_purple.png" id="1_qfbnj"]
+[ext_resource type="Script" path="res://scripts/enemy.gd" id="1_r26g1"]
+[ext_resource type="Resource" uid="uid://c5vyvq8t0fd5c" path="res://resources/enemy1.tres" id="2_cfy1d"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nf0y3"]
+atlas = ExtResource("1_qfbnj")
+region = Rect2(0, 24, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4lt1q"]
+atlas = ExtResource("1_qfbnj")
+region = Rect2(24, 24, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sxkgb"]
+atlas = ExtResource("1_qfbnj")
+region = Rect2(48, 24, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yfng6"]
+atlas = ExtResource("1_qfbnj")
+region = Rect2(72, 24, 24, 24)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_xyubo"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nf0y3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4lt1q")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_sxkgb")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yfng6")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 7.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_vt35x"]
+size = Vector2(10, 12)
+
+[node name="Enemy" type="Area2D"]
+collision_mask = 2
+script = ExtResource("1_r26g1")
+stats = ExtResource("2_cfy1d")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(0, -12)
+sprite_frames = SubResource("SpriteFrames_xyubo")
+animation = &"idle"
+autoplay = "idle"
+flip_h = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -6)
+shape = SubResource("RectangleShape2D_vt35x")
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
