@@ -1,0 +1,5 @@
+[gd_scene format=3 uid="uid://dxj0w7hlb83l"]
+
+[node name="Area2D" type="Area2D"]
+monitoring = false
+monitorable = false
