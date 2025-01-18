@@ -1,5 +1,5 @@
-class_name Ennemy
-extends Area2D
+class_name Enemy
+extends Node2D
 
 @onready var until_next_damage : Timer = %Timer
 @export var stats: EnemyStats
