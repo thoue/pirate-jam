@@ -145,7 +145,7 @@ size = Vector2(79, 323)
 [node name="GameLoop" type="Node2D"]
 
 [node name="Camera2D" type="Camera2D" parent="."]
-zoom = Vector2(2, 2)
+zoom = Vector2(1.52, 1.52)
 
 [node name="Enemy" parent="." instance=ExtResource("1_rv8kg")]
 position = Vector2(292, -1)
