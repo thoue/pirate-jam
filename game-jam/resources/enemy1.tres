@@ -1,23 +1,11 @@
-[gd_resource type="Resource" script_class="EnemyInfo" load_steps=12 format=3 uid="uid://c5vyvq8t0fd5c"]
+[gd_resource type="Resource" script_class="EnemyInfo" load_steps=9 format=3 uid="uid://c5vyvq8t0fd5c"]
 
 [ext_resource type="Script" path="res://scripts/enemy_info.gd" id="1_xikbf"]
 [ext_resource type="Texture2D" uid="uid://dvef1avr6wgqs" path="res://assets/slime_purple.png" id="2_y5p1e"]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_jxssr"]
-atlas = ExtResource("2_y5p1e")
-region = Rect2(0, 48, 24, 24)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_431et"]
-atlas = ExtResource("2_y5p1e")
-region = Rect2(24, 48, 24, 24)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_6blfb"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_74h5t"]
 atlas = ExtResource("2_y5p1e")
 region = Rect2(48, 48, 24, 24)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_oo5jq"]
-atlas = ExtResource("2_y5p1e")
-region = Rect2(72, 48, 24, 24)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_12u60"]
 atlas = ExtResource("2_y5p1e")
@@ -39,16 +27,7 @@ region = Rect2(72, 24, 24, 24)
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_jxssr")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_431et")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_6blfb")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_oo5jq")
+"texture": SubResource("AtlasTexture_74h5t")
 }],
 "loop": false,
 "name": &"die",

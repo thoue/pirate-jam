@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://ct8k4j2j4ps6x"]
+[gd_scene load_steps=14 format=3 uid="uid://ct8k4j2j4ps6x"]
 
 [ext_resource type="PackedScene" uid="uid://diw4kln4m6r2l" path="res://scenes/sword/sword.tscn" id="1_ybaxw"]
 [ext_resource type="Texture2D" uid="uid://d4sbcis6tmrq" path="res://assets/world_tileset.png" id="2_l8hhd"]
@@ -8,6 +8,7 @@
 [ext_resource type="Script" path="res://scripts/enemy_wave.gd" id="6_4upiw"]
 [ext_resource type="Resource" uid="uid://f7a4etl35jsp" path="res://resources/waves/level1/level1_wave1.tres" id="7_xr7bk"]
 [ext_resource type="PackedScene" uid="uid://dxj0w7hlb83l" path="res://scenes/spawn_zone/spawn_zone.tscn" id="8_d4sjn"]
+[ext_resource type="AudioStream" uid="uid://b1ed5r3lr683j" path="res://assets/8 BIT RPG BATTLE  Retro Game Music  No Copyright Music.mp3" id="9_sc0wr"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_b6csw"]
 texture = ExtResource("2_l8hhd")
@@ -208,5 +209,11 @@ enemies_node = NodePath("../../Enemies")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="SpawnZones/Area2D2"]
 position = Vector2(-38, 98)
 shape = SubResource("RectangleShape2D_17r5a")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("9_sc0wr")
+volume_db = -19.5
+autoplay = true
+parameters/looping = false
 
 [connection signal="on_base_destroyed" from="Environment/Base" to="GameManager" method="_on_base_destroyed"]
