@@ -22,4 +22,4 @@ theme_override_styles/fill = SubResource("StyleBoxFlat_pg607")
 value = 100.0
 show_percentage = false
 
-[connection signal="area_entered" from="." to="." method="_on_area_entered"]
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

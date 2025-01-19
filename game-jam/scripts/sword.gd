@@ -35,3 +35,7 @@ func _handle_rotation() -> void:
 	look_at(target_position)
 	var target_rot = rotation_degrees
 	rotation_degrees = lerpf(rot, target_rot, 0.3)
+
+func _on_body_entered(body: Node2D) -> void:
+	if body.is_damageable:
+		body.hit()

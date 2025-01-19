@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://dobfn3t7aor2r"]
 
-[ext_resource type="PackedScene" uid="uid://diw4kln4m6r2l" path="res://scenes/sword/sword.tscn" id="1_vg5d3"]
+[ext_resource type="PackedScene" uid="uid://diw4kln4m6r2l" path="res://scenes/sword.tscn" id="1_vg5d3"]
 [ext_resource type="PackedScene" uid="uid://d03niy2mwumim" path="res://scenes/enemy/enemy_1.tscn" id="2_lxw41"]
 
 [node name="SwordDev" type="Node2D"]
