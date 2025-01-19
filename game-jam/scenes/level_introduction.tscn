@@ -1,0 +1,90 @@
+[gd_scene load_steps=10 format=3 uid="uid://cm4d4u1c5k86"]
+
+[ext_resource type="Texture2D" uid="uid://dc745uomvax38" path="res://assets/istockphoto-1333010525-612x612.jpg" id="1_ca5co"]
+[ext_resource type="FontFile" uid="uid://cvxxvxrpbxgyk" path="res://assets/PixelOperator8-Bold.ttf" id="2_qlrt8"]
+[ext_resource type="FontFile" uid="uid://b4oy7rhbvfgv5" path="res://assets/PixelOperator8.ttf" id="3_pg2q3"]
+[ext_resource type="Texture2D" uid="uid://dvef1avr6wgqs" path="res://assets/slime_purple.png" id="4_4wno8"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_a8gdt"]
+atlas = ExtResource("4_4wno8")
+region = Rect2(0, 24, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tsj6o"]
+atlas = ExtResource("4_4wno8")
+region = Rect2(24, 24, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_q58f8"]
+atlas = ExtResource("4_4wno8")
+region = Rect2(48, 24, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_n53do"]
+atlas = ExtResource("4_4wno8")
+region = Rect2(72, 24, 24, 24)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_scbl8"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_a8gdt")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tsj6o")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_q58f8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_n53do")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="LevelIntroduction" type="Node2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(480, 269.25)
+scale = Vector2(1.56863, 1.47003)
+texture = ExtResource("1_ca5co")
+
+[node name="Label" type="Label" parent="."]
+offset_left = 6.0
+offset_top = 54.0
+offset_right = 958.0
+offset_bottom = 118.0
+theme_override_fonts/font = ExtResource("2_qlrt8")
+theme_override_font_sizes/font_size = 32
+text = "WORLD 1 - LEVEL 1"
+horizontal_alignment = 1
+vertical_alignment = 1
+text_direction = 1
+
+[node name="Label2" type="Label" parent="."]
+offset_left = 63.0
+offset_top = 154.0
+offset_right = 918.0
+offset_bottom = 178.0
+theme_override_fonts/font = ExtResource("3_pg2q3")
+theme_override_font_sizes/font_size = 24
+text = "Purple slimes are invading the Zephir Castle !
+Zephirians need your help to prevent
+any destruction"
+horizontal_alignment = 1
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(488, 254)
+scale = Vector2(7, 6.41667)
+sprite_frames = SubResource("SpriteFrames_scbl8")
+autoplay = "default"
+frame_progress = 0.825202
+
+[node name="Label3" type="Label" parent="."]
+offset_left = 74.0
+offset_top = 357.0
+offset_right = 934.0
+offset_bottom = 389.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_qlrt8")
+theme_override_font_sizes/font_size = 32
+text = "Everyone counts on you, hero !"
