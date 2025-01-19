@@ -6,7 +6,7 @@ var health = 100
 @onready var score = $ProgressBar
 
 func _on_area_entered(area: Area2D) -> void:
-	health -= area.stats.damage
+	health -= area.enemy_info.damage
 	score.value = health
 	area.queue_free()
 	
