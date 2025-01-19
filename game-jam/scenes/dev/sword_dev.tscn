@@ -6,7 +6,6 @@
 [node name="SwordDev" type="Node2D"]
 
 [node name="Sword" parent="." instance=ExtResource("1_vg5d3")]
-collision_layer = 2
 
 [node name="Camera2D" type="Camera2D" parent="."]
 
