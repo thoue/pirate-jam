@@ -5,7 +5,6 @@ signal on_enemy_killed
 
 @onready var until_next_damage : Timer = %Timer
 @export var stats: EnemyStats
-@onready var animation_player = $AnimationPlayer
 var max_health
 var is_damageable : bool = true
 

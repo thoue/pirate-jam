@@ -4,7 +4,7 @@ extends Control
 	
 
 func _on_start_button_pressed() -> void:
-	get_tree().change_scene_to_file("res://scenes/dev/game_loop.tscn")
+	get_tree().change_scene_to_file("res://scenes/levels/level1.tscn")
 	audio.stop()
 
 func _on_quit_button_pressed() -> void:

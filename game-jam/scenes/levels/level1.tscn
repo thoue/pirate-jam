@@ -151,7 +151,7 @@ size = Vector2(73, 49)
 [node name="GameLoop" type="Node2D"]
 
 [node name="Camera2D" type="Camera2D" parent="."]
-zoom = Vector2(2, 2)
+zoom = Vector2(1.495, 1.495)
 
 [node name="Sword" parent="." instance=ExtResource("1_ybaxw")]
 
@@ -186,7 +186,7 @@ Kill all the enemies"
 
 [node name="GameManager" type="Node" parent="." node_paths=PackedStringArray("spawn_zones")]
 script = ExtResource("5_ro1on")
-waves = Array[ExtResource("6_4upiw")]([ExtResource("7_xr7bk")])
+waves = Array[ExtResource("6_4upiw")]([ExtResource("7_xr7bk"), ExtResource("7_xr7bk"), ExtResource("7_xr7bk")])
 spawn_zones = [NodePath("../SpawnZones/Area2D"), NodePath("../SpawnZones/Area2D2")]
 
 [node name="SpawnZones" type="Node" parent="."]

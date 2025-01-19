@@ -1,7 +1,7 @@
 [gd_scene load_steps=11 format=3 uid="uid://d03niy2mwumim"]
 
 [ext_resource type="Script" path="res://scripts/enemy.gd" id="1_j3rt6"]
-[ext_resource type="Resource" uid="uid://86g443gqluo5" path="res://resources/enemy1.tres" id="2_lkhco"]
+[ext_resource type="Resource" uid="uid://c5vyvq8t0fd5c" path="res://resources/enemy1.tres" id="2_lkhco"]
 [ext_resource type="Texture2D" uid="uid://dvef1avr6wgqs" path="res://assets/slime_purple.png" id="3_x2yej"]
 [ext_resource type="AudioStream" uid="uid://cloxko7q8dtrf" path="res://assets/Arcade Retro Game Over - Sound Effect (Final Cut).mp3" id="4_advey"]
 
