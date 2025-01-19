@@ -2,7 +2,7 @@ extends Area2D
 
 @export var damage : int = 1
 @export var speed : int = 10
-@export var distance_to_mouse : int = 30
+@export var distance_to_mouse : int = 10
 
 var mouse_changed : bool = false
 var target_position : Vector2

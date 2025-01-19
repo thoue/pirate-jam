@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://dxj0w7hlb83l"]
+
+[ext_resource type="Script" path="res://scripts/spawn_zone.gd" id="1_6vkf1"]
+
+[node name="Area2D" type="Area2D"]
+monitoring = false
+monitorable = false
+script = ExtResource("1_6vkf1")

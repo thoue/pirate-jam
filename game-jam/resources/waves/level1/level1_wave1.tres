@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="EnemyWave" load_steps=3 format=3 uid="uid://f7a4etl35jsp"]
+
+[ext_resource type="PackedScene" uid="uid://d03niy2mwumim" path="res://scenes/enemy/enemy_1.tscn" id="1_mfpi8"]
+[ext_resource type="Script" path="res://scripts/enemy_wave.gd" id="1_nvtq3"]
+
+[resource]
+script = ExtResource("1_nvtq3")
+scenes = Array[PackedScene]([ExtResource("1_mfpi8"), ExtResource("1_mfpi8")])
+number_of_enemies = Array[int]([10, 10])
