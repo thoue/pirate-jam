@@ -11,13 +11,12 @@ config_version=5
 [application]
 
 config/name="Game Jam"
-run/main_scene="res://scenes/dev/game_loop.tscn"
+run/main_scene="res://scenes/levels/level1.tscn"
 config/features=PackedStringArray("4.3", "Forward Plus")
 config/icon="res://assets/icon.svg"
 
 [display]
 
-window/stretch/scale=2.0
 window/stretch/scale_mode="integer"
 
 [rendering]

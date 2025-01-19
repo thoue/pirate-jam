@@ -1,11 +1,14 @@
-[gd_scene load_steps=2 format=3 uid="uid://cl2mgp4v1nndr"]
+[gd_scene load_steps=3 format=3 uid="uid://cl2mgp4v1nndr"]
 
 [ext_resource type="Script" path="res://scripts/game_manager.gd" id="1_l5w34"]
+[ext_resource type="Resource" uid="uid://f7a4etl35jsp" path="res://resources/waves/level1/level1_wave1.tres" id="2_n4ttj"]
 
 [node name="DevGameManager" type="Node2D"]
 script = ExtResource("1_l5w34")
-waves = [{}]
+waves = [ExtResource("2_n4ttj"), null]
 
 [node name="GameManager" type="Node" parent="."]
 
 [node name="SpawnZones" type="Node" parent="."]
+
+[node name="Enemies" type="Node" parent="."]
