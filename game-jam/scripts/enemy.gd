@@ -80,7 +80,6 @@ func hit() -> void:
 		animation_player.current_animation = "die"
 		animation_player.play()
 		
-		
 func _on_timeout() -> void:
 	is_damageable = true
 	animated_sprite_2d.animation = "idle"
