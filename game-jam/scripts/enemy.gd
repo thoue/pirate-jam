@@ -75,11 +75,14 @@ func hit() -> void:
 	animated_sprite_2d.animation = "die"
 	animated_sprite_2d.play()
 	if (max_health == 0):
-		is_dying = true
-		on_enemy_killed.emit()
-		animation_player.current_animation = "die"
-		animation_player.play()
-		
+		die()
+
+func die() -> void:
+	is_dying = true
+	on_enemy_killed.emit()
+	animation_player.current_animation = "die"
+	animation_player.play()
+	
 func _on_timeout() -> void:
 	is_damageable = true
 	animated_sprite_2d.animation = "idle"

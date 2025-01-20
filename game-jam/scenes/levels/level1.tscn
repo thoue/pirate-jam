@@ -1,18 +1,14 @@
-[gd_scene load_steps=14 format=3 uid="uid://ct8k4j2j4ps6x"]
+[gd_scene load_steps=15 format=3 uid="uid://ct8k4j2j4ps6x"]
 
 [ext_resource type="PackedScene" uid="uid://diw4kln4m6r2l" path="res://scenes/sword.tscn" id="1_ybaxw"]
 [ext_resource type="Texture2D" uid="uid://d4sbcis6tmrq" path="res://assets/world_tileset.png" id="2_l8hhd"]
 [ext_resource type="PackedScene" uid="uid://b40x74v5ehvh8" path="res://scenes/base.tscn" id="3_1jht1"]
+[ext_resource type="AudioStream" uid="uid://b1ed5r3lr683j" path="res://assets/8 BIT RPG BATTLE  Retro Game Music  No Copyright Music.mp3" id="4_ohc2f"]
 [ext_resource type="FontFile" uid="uid://cvxxvxrpbxgyk" path="res://assets/PixelOperator8-Bold.ttf" id="4_yhyrh"]
 [ext_resource type="Script" path="res://scripts/game_manager.gd" id="5_ro1on"]
 [ext_resource type="Script" path="res://scripts/enemy_wave.gd" id="6_4upiw"]
 [ext_resource type="Resource" uid="uid://f7a4etl35jsp" path="res://resources/waves/level1/level1_wave1.tres" id="7_xr7bk"]
 [ext_resource type="PackedScene" uid="uid://dxj0w7hlb83l" path="res://scenes/spawn_zone.tscn" id="8_d4sjn"]
-
-[sub_resource type="NavigationPolygon" id="NavigationPolygon_abues"]
-vertices = PackedVector2Array(305, -15.2969, 299.289, 173.953, -317.906, 171.039, -315.078, -158.094, 304.063, -163.898)
-polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3, 4)])
-outlines = Array[PackedVector2Array]([PackedVector2Array(-325, -168, -328, 181, 309, 184, 315, -15, 314, -174)])
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_b6csw"]
 texture = ExtResource("2_l8hhd")
@@ -150,16 +146,17 @@ sources/0 = SubResource("TileSetAtlasSource_b6csw")
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ym6ra"]
 size = Vector2(79, 323)
 
+[sub_resource type="NavigationPolygon" id="NavigationPolygon_abues"]
+vertices = PackedVector2Array(305, -15.2969, 299.289, 173.953, -317.906, 171.039, -315.078, -158.094, 304.063, -163.898)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3, 4)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(-325, -168, -328, 181, 309, 184, 315, -15, 314, -174)])
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_17r5a"]
 size = Vector2(73, 49)
 
 [node name="Level1" type="Node2D"]
 
-[node name="NavigationRegion2D" type="NavigationRegion2D" parent="."]
-position = Vector2(5, -2)
-navigation_polygon = SubResource("NavigationPolygon_abues")
-
-[node name="Camera2D" type="Camera2D" parent="."]
+[node name="Camera" type="Camera2D" parent="."]
 zoom = Vector2(1.495, 1.495)
 
 [node name="Environment" type="Node" parent="."]
@@ -189,6 +186,17 @@ theme_override_fonts/font = ExtResource("4_yhyrh")
 text = "Defend your base !
 Kill all the enemies"
 
+[node name="NavigationRegion2D" type="NavigationRegion2D" parent="Environment"]
+position = Vector2(5, -2)
+navigation_polygon = SubResource("NavigationPolygon_abues")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="Environment"]
+position = Vector2(5, -2)
+stream = ExtResource("4_ohc2f")
+volume_db = -19.5
+autoplay = true
+parameters/looping = false
+
 [node name="GameManager" type="Node" parent="." node_paths=PackedStringArray("spawn_zones")]
 script = ExtResource("5_ro1on")
 waves = Array[ExtResource("6_4upiw")]([ExtResource("7_xr7bk"), ExtResource("7_xr7bk"), ExtResource("7_xr7bk")])
@@ -199,7 +207,7 @@ spawn_zones = [NodePath("../SpawnZones/Area2D"), NodePath("../SpawnZones/Area2D2
 [node name="Area2D2" parent="SpawnZones" node_paths=PackedStringArray("spawn_area", "enemies_node") instance=ExtResource("8_d4sjn")]
 position = Vector2(292, -152)
 spawn_area = NodePath("CollisionShape2D")
-enemies_node = NodePath("../../Enemies")
+enemies_node = NodePath("../../Entities/Enemies")
 direction = 3
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="SpawnZones/Area2D2"]
@@ -209,7 +217,7 @@ shape = SubResource("RectangleShape2D_17r5a")
 [node name="Area2D" parent="SpawnZones" node_paths=PackedStringArray("spawn_area", "enemies_node", "target") instance=ExtResource("8_d4sjn")]
 position = Vector2(292, 0)
 spawn_area = NodePath("CollisionShape2D")
-enemies_node = NodePath("../../Enemies")
+enemies_node = NodePath("../../Entities/Enemies")
 navigation_mode = 1
 direction = 3
 target = NodePath("../../Environment/Base/CollisionShape2D")
@@ -218,8 +226,10 @@ target = NodePath("../../Environment/Base/CollisionShape2D")
 position = Vector2(-38, 98)
 shape = SubResource("RectangleShape2D_17r5a")
 
-[node name="Sword" parent="." instance=ExtResource("1_ybaxw")]
+[node name="Entities" type="Node" parent="."]
 
-[node name="Enemies" type="Node" parent="."]
+[node name="Sword" parent="Entities" instance=ExtResource("1_ybaxw")]
+
+[node name="Enemies" type="Node" parent="Entities"]
 
 [connection signal="on_base_destroyed" from="Environment/Base" to="GameManager" method="_on_base_destroyed"]
