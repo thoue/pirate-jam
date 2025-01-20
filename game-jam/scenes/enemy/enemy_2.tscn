@@ -1,8 +1,8 @@
-[gd_scene load_steps=8 format=3 uid="uid://bfxbbx402nu22"]
+[gd_scene load_steps=8 format=3 uid="uid://l5qf8feul7uy"]
 
-[ext_resource type="Script" path="res://scripts/enemy.gd" id="1_j3rt6"]
-[ext_resource type="Resource" uid="uid://c5vyvq8t0fd5c" path="res://resources/enemy1.tres" id="2_lkhco"]
-[ext_resource type="AudioStream" uid="uid://cloxko7q8dtrf" path="res://assets/Arcade Retro Game Over - Sound Effect (Final Cut).mp3" id="4_advey"]
+[ext_resource type="Script" path="res://scripts/enemy.gd" id="1_vtkrg"]
+[ext_resource type="Resource" uid="uid://c5vyvq8t0fd5c" path="res://resources/enemies/enemy_1.tres" id="2_xjxgo"]
+[ext_resource type="AudioStream" uid="uid://cloxko7q8dtrf" path="res://assets/Arcade Retro Game Over - Sound Effect (Final Cut).mp3" id="3_mmw0f"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_vt35x"]
 size = Vector2(10, 12)
@@ -30,14 +30,14 @@ tracks/0/keys = {
 tracks/1/type = "audio"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("AudioStreamPlayer2D")
+tracks/1/path = NodePath("../AudioStreamPlayer2D")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
 "clips": [{
 "end_offset": 2.1406,
 "start_offset": 1.7474,
-"stream": ExtResource("3_5bt5u")
+"stream": ExtResource("3_mmw0f")
 }],
 "times": PackedFloat32Array(0.0333333)
 }
@@ -49,16 +49,11 @@ _data = {
 "die": SubResource("Animation_cosq7")
 }
 
-[sub_resource type="Curve" id="Curve_gxesf"]
-_data = [Vector2(0.0208333, 1), 0.0, 0.0, 0, 0, Vector2(0.989583, 0.098901), 0.0, 0.0, 0, 0]
-point_count = 2
-
-[node name="Enemy" type="Area2D"]
-z_index = 1
+[node name="Enemy" type="CharacterBody2D"]
 collision_layer = 4
 collision_mask = 2
-script = ExtResource("1_j3rt6")
-enemy_info = ExtResource("2_lkhco")
+script = ExtResource("1_vtkrg")
+enemy_info = ExtResource("2_xjxgo")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 unique_name_in_owner = true
@@ -78,23 +73,13 @@ volume_db = 10.0
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 unique_name_in_owner = true
+root_node = NodePath("")
 libraries = {
 "": SubResource("AnimationLibrary_ltf1g")
 }
 
-[node name="CPUParticles2D" type="CPUParticles2D" parent="."]
-position = Vector2(0, -6)
-emitting = false
-amount = 60
-lifetime = 0.2
-one_shot = true
-explosiveness = 1.0
-spread = 180.0
-gravity = Vector2(0, 0)
-initial_velocity_min = 50.0
-initial_velocity_max = 100.0
-scale_amount_min = 0.5
-scale_amount_curve = SubResource("Curve_gxesf")
+[node name="Navigation" type="Node2D" parent="."]
 
-[connection signal="area_entered" from="." to="." method="_on_area_entered"]
-[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[node name="NavigationAgent2D" type="NavigationAgent2D" parent="Navigation"]
+unique_name_in_owner = true
+debug_enabled = true
