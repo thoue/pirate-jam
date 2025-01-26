@@ -92,6 +92,7 @@ parameters/looping = false
 position = Vector2(480.5, 272.5)
 scale = Vector2(1.918, 1.81)
 sprite_frames = SubResource("SpriteFrames_6dxtp")
+autoplay = "default"
 frame = 3
 frame_progress = 0.468701
 
