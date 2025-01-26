@@ -77,7 +77,7 @@ position = Vector2(488, 254)
 scale = Vector2(7, 6.41667)
 sprite_frames = SubResource("SpriteFrames_scbl8")
 autoplay = "default"
-frame_progress = 0.825202
+frame_progress = 0.102772
 
 [node name="Label3" type="Label" parent="."]
 offset_left = 74.0

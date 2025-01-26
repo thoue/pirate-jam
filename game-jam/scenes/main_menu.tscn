@@ -1,9 +1,45 @@
-[gd_scene load_steps=5 format=3 uid="uid://capc3ko8l2gl7"]
+[gd_scene load_steps=10 format=3 uid="uid://capc3ko8l2gl7"]
 
 [ext_resource type="FontFile" uid="uid://cvxxvxrpbxgyk" path="res://assets/PixelOperator8-Bold.ttf" id="1_60aqa"]
 [ext_resource type="Script" path="res://scripts/main_menu.gd" id="1_payqr"]
-[ext_resource type="Texture2D" uid="uid://cd0gj0t7r27u3" path="res://assets/075342e12357756806e5e5e272187429.jpg" id="2_r81ee"]
+[ext_resource type="Texture2D" uid="uid://p4cln42sk7wp" path="res://assets/image (5).png" id="4_2w0y2"]
 [ext_resource type="AudioStream" uid="uid://xudxapothr1o" path="res://assets/[No Copyright] Fuzzeke - The Fantasy [Fairytail Trailer Music].mp3" id="4_h8la3"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ytyqk"]
+atlas = ExtResource("4_2w0y2")
+region = Rect2(0, 0, 500, 300)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cty11"]
+atlas = ExtResource("4_2w0y2")
+region = Rect2(500, 0, 500, 300)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fmjwh"]
+atlas = ExtResource("4_2w0y2")
+region = Rect2(0, 300, 500, 300)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wqr47"]
+atlas = ExtResource("4_2w0y2")
+region = Rect2(500, 300, 500, 300)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_6dxtp"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ytyqk")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cty11")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fmjwh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wqr47")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
 
 [node name="MainMenu" type="Control"]
 layout_mode = 3
@@ -47,15 +83,17 @@ theme_override_fonts/font = ExtResource("1_60aqa")
 text = "Quit
 "
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(575.5, 322)
-scale = Vector2(1.59583, 1.595)
-texture = ExtResource("2_r81ee")
-
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("4_h8la3")
 autoplay = true
 parameters/looping = false
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(480.5, 272.5)
+scale = Vector2(1.918, 1.81)
+sprite_frames = SubResource("SpriteFrames_6dxtp")
+frame = 3
+frame_progress = 0.468701
 
 [connection signal="pressed" from="VBoxContainer/StartButton" to="." method="_on_start_button_pressed"]
 [connection signal="pressed" from="VBoxContainer/QuitButton" to="." method="_on_quit_button_pressed"]
